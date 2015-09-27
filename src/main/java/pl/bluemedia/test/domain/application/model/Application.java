@@ -30,7 +30,7 @@ import com.google.common.collect.Lists;
 	name = Application.FULL_GRAPH_NAME,
 	attributeNodes = {
 		@NamedAttributeNode(value = "state"),
-		//@NamedAttributeNode(value = "stateHistory"),
+		@NamedAttributeNode(value = "stateHistory"),
 	}
 )
 public class Application extends BaseMutableAuditableEntity {

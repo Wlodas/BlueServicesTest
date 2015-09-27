@@ -35,7 +35,7 @@ public class ApplicationServiceTest {
 	
 	@Primary
 	@Bean
-	public ApplicationNumberGenerator createGenerator() {
+	public ApplicationNumberGenerator stubbedNumberGenerator() {
 		return () -> APPLICATION_NUMBER;
 	}
 	
