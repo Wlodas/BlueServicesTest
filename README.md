@@ -1,6 +1,7 @@
 # BlueServicesTest
 
 Description:
+
 Implementation of recruitment task for Blue Services company. Program domain concerns 'application' business artifact and its possible state changes according to state diagram included in task description. Each state change also has to be remembered and added to application state change history.
 
 Additionally applications have to be searchable by name and state. By default one page should be consisted from max 10 elements when not specified.
@@ -12,6 +13,7 @@ To actually implement described features the following techniques were used:
 - buildable search query using JpaSpecificationExecutor mechanism
 - exception thrown when some state change operation is not allowed on application
 
+It was also assumed that application's name is not a part of its state so the field representing it was allocated in root entity itself.
 
 
 Libraries used:
