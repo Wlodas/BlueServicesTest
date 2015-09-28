@@ -9,5 +9,5 @@ import pl.bluemedia.test.domain.application.model.Application;
 
 public interface ApplicationRepository extends Repository<Application, Long>, ApplicationRepositoryCustom {
 	@Lock(LockModeType.OPTIMISTIC_FORCE_INCREMENT)
-	<S extends Application> S save(S entity);
+	Application save(Application entity);
 }

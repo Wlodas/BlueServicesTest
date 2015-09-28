@@ -20,7 +20,6 @@ import pl.bluemedia.test.BlueServicesTestApplication;
 import pl.bluemedia.test.domain.application.model.Application;
 import pl.bluemedia.test.domain.application.model.ApplicationStateType;
 import pl.bluemedia.test.domain.application.repository.ApplicationRepository;
-import pl.bluemedia.test.domain.application.repository.builder.ApplicationSearchBuilderImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = BlueServicesTestApplication.class)
@@ -39,7 +38,7 @@ public class ApplicationSearchBuilderTest {
 	private List<Application> createApplications(int count) {
 		return IntStream.rangeClosed(1, count)
 			.mapToObj(n -> new Application("name" + n, "contents"))
-			.peek(app -> repo.save(app))
+			.peek(repo::save)
 			.collect(Collectors.toList())
 		;
 	}
