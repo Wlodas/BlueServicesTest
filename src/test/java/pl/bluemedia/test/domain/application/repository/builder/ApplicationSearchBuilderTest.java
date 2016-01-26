@@ -37,8 +37,7 @@ public class ApplicationSearchBuilderTest {
 	
 	private List<Application> createApplications(int count) {
 		return IntStream.rangeClosed(1, count)
-			.mapToObj(n -> new Application("name" + n, "contents"))
-			.peek(repo::save)
+			.mapToObj(n -> createApplication())
 			.collect(Collectors.toList())
 		;
 	}

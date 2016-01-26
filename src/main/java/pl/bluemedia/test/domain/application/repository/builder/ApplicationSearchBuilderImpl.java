@@ -3,7 +3,6 @@ package pl.bluemedia.test.domain.application.repository.builder;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 
 import lombok.RequiredArgsConstructor;
@@ -15,6 +14,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import pl.bluemedia.test.domain.application.model.Application;
 import pl.bluemedia.test.domain.application.model.ApplicationStateType;
+import pl.bluemedia.test.domain.application.model.Application_;
 
 @RequiredArgsConstructor
 public class ApplicationSearchBuilderImpl implements ApplicationSearchBuilder {
@@ -44,10 +44,10 @@ public class ApplicationSearchBuilderImpl implements ApplicationSearchBuilder {
 			Collection<Predicate> predicates = new ArrayList<>(2);
 			
 			if(name != null) {
-				predicates.add(cb.equal(root.get("name"), name));
+				predicates.add(cb.equal(root.get(Application_.name), name));
 			}
 			if(stateType != null) {
-				predicates.add(cb.equal(root.join("state", JoinType.LEFT).type(), stateType.getStateClass()));
+				predicates.add(cb.equal(root.join(Application_.state).type(), stateType.getStateClass()));
 			}
 			
 			return cb.and(predicates.toArray(new Predicate[predicates.size()]));

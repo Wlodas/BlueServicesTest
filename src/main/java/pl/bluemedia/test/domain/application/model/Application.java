@@ -35,7 +35,7 @@ import com.google.common.collect.Lists;
 )
 public class Application extends BaseMutableAuditableEntity {
 	
-	public static final String FULL_GRAPH_NAME = "application.fullGraph";
+	public static final String FULL_GRAPH_NAME = "Application.fullGraph";
 	
 	@Basic(optional = false)
 	@Getter private String name;
